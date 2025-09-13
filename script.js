@@ -50,3 +50,10 @@ function generateRoundingProblem() {
 function showRoundingSolution() {
   document.getElementById("rounding-solution").style.display = "block";
 }
+
+
+window.onload = function() {
+  generateProblem();
+  generateAlgebraProblem();
+  generateRoundingProblem();
+};

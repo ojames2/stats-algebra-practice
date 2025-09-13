@@ -1,4 +1,4 @@
-<!-- Order of Operations Section -->
+// Order of Operations Section
 function generateProblem() {
   const a = Math.floor(Math.random() * 10 + 1);
   const b = Math.floor(Math.random() * 10 + 1);
@@ -16,7 +16,7 @@ function showSolution() {
 }
 
 
-<!-- Algebra Section -->
+// Algebra Section
 function generateAlgebraProblem() {
   const x = Math.floor(Math.random() * 10 + 1);
   const b = Math.floor(Math.random() * 10);
@@ -35,7 +35,7 @@ function showAlgebraSolution() {
 
 
 
-<!-- Rounding Section -->
+// Rounding Section
 function generateRoundingProblem() {
   const num = (Math.random() * 100).toFixed(5);
   const rounded = parseFloat(num).toFixed(2);
@@ -53,7 +53,8 @@ function showRoundingSolution() {
 
 
 window.onload = function() {
-  generateProblem();
-  generateAlgebraProblem();
-  generateRoundingProblem();
+  generateProblem();              // Order of Operations
+  generateAlgebraProblem();       // Algebra
+  generateRoundingProblem();      // Rounding
 };
+

@@ -27,6 +27,21 @@ section {
   text-align: center;
 }
 
+.easy {
+  background-color: #e6f4ea; /* soft green background */
+  border-left: 6px solid #4CAF50; /* bold green accent */
+}
+
+.intermediate {
+  background-color: #fff8e1; /* soft dark yellow background */
+  border-left: 6px solid #f4b400; /* bold dark yellow accent */
+}
+
+.advanced {
+  background-color: #ffe5e0; /* soft red-orange background */
+  border-left: 6px solid #ff7043; /* bold red-orange accent */
+}
+
 .column h3 {
   color: #4CAF50;
   font-size: 20px;

@@ -50,6 +50,12 @@ section {
   margin-bottom: 10px;
 }
 
+.easy h3,
+.intermediate h3,
+.advanced h3 {
+  color: black;
+}
+
 button {
   font-family: "Times New Roman", Times, serif;
   padding: 10px 20px;

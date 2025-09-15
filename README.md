@@ -1,1 +1,1 @@
-# This file was made as a resource tool for students in statistics to use as a way to practice preliminary alegebra before exams.
+# This webpage isfor students in introduction to psychological statistics courses to use as a way to practice their math skills before exams.

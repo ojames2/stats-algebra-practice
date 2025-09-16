@@ -53,17 +53,19 @@ function showRoundingSolution() {
 
 
 window.onload = function() {
-  generateProblem();              // Order of Operations
-  generateAlgebraProblem();       // Algebra
-  generateRoundingProblem();      // Rounding
+  generateProblem(); // Order of Operations
+  generateAlgebraProblem(); // Algebra
+  generateRoundingProblem(); // Rounding
 
-document.getElementById("new-problem-btn").addEventListener("click", generateProblem);
-document.getElementById("reveal-answer-btn").addEventListener("click", showSolution);
+  // Add these event listeners to make buttons interactive
+  document.getElementById("new-problem-btn").addEventListener("click", generateProblem);
+  document.getElementById("reveal-answer-btn").addEventListener("click", showSolution);
 
-document.getElementById("new-algebra-btn").addEventListener("click", generateAlgebraProblem);
-document.getElementById("reveal-algebra-btn").addEventListener("click", showAlgebraSolution);
+  document.getElementById("new-algebra-btn").addEventListener("click", generateAlgebraProblem);
+  document.getElementById("reveal-algebra-btn").addEventListener("click", showAlgebraSolution);
 
-document.getElementById("new-rounding-btn").addEventListener("click", generateRoundingProblem);
-document.getElementById("reveal-rounding-btn").addEventListener("click", showRoundingSolution);
+  document.getElementById("new-rounding-btn").addEventListener("click", generateRoundingProblem);
+  document.getElementById("reveal-rounding-btn").addEventListener("click", showRoundingSolution);
 };
+
 

@@ -3,7 +3,7 @@ let currentEasyAnswer = null;
 function generateProblem() {
   const x = Math.floor(Math.random() * 10) + 1;
   const y = Math.floor(Math.random() * 10) + 1;
-  const operators = ["+", "-", "*", "/"];
+  const operators = ["+", "—", "*", "÷"];
   const operator = operators[Math.floor(Math.random() * operators.length)];
   let problemText = `What is ${x} ${operator} ${y}?`;
   // Calculate the correct answer

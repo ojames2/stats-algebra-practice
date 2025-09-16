@@ -1,19 +1,25 @@
 // Order of Operations Section
-function generateProblem() {
-  const a = Math.floor(Math.random() * 10 + 1);
-  const b = Math.floor(Math.random() * 10 + 1);
-  const c = Math.floor(Math.random() * 10 + 1);
-  const problem = `${a} + ${b} × ${c}`;
-  const answer = a + b * c;
-
-  document.getElementById("problem").innerText = problem;
-  document.getElementById("solution").innerText = `Answer: ${answer}`;
-  document.getElementById("solution").style.display = "none";
-}
-
-function showSolution() {
-  document.getElementById("solution").style.display = "block";
-}
+let currentEasyAnswer = null;
+document.getElementById("new-easy-btn-1").addEventListener("click", () => {
+  const x = Math.floor(Math.random() * 10) + 1; // Random number between 1–10
+  const y = Math.floor(Math.random() * 10) + 1;
+  currentEasyAnswer = x + y;
+  document.getElementById("easy-problem-1").textContent = `What is ${x} + ${y}?`;
+  document.getElementById("easy-answer-1").value = "";
+  document.getElementById("easy-solution-1").style.display = "none";
+});
+document.getElementById("reveal-easy-btn-1").addEventListener("click", () => {
+  const userAnswer = parseInt(document.getElementById("easy-answer-1").value);
+  const feedback = document.getElementById("easy-solution-1");
+  if (isNaN(userAnswer)) {
+    feedback.textContent = "Please enter a number.";
+  } else if (userAnswer === currentEasyAnswer) {
+    feedback.textContent = "✅ Correct!";
+  } else {
+    feedback.textContent = `❌ Incorrect. The correct answer is ${currentEasyAnswer}.`;
+  }
+  feedback.style.display = "block";
+});
 
 
 // Algebra Section

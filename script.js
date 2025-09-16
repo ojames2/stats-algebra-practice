@@ -11,13 +11,13 @@ function generateProblem() {
     case "+":
       currentEasyAnswer = x + y;
       break;
-    case "-":
+    case "—":
       currentEasyAnswer = x - y;
       break;
-    case "*":
+    case "x":
       currentEasyAnswer = x * y;
       break;
-    case "/":
+    case "÷":
       currentEasyAnswer = parseFloat((x / y).toFixed(2)); // Round to 2 decimals
       break;
   }
@@ -25,7 +25,6 @@ function generateProblem() {
   document.getElementById("easy-answer-1").value = "";
   document.getElementById("easy-solution-1").style.display = "none";
 }
-
 function showSolution() {
   const userAnswer = parseFloat(document.getElementById("easy-answer-1").value);
   const feedback = document.getElementById("easy-solution-1");

@@ -6,7 +6,7 @@ function generateProblem() {
   const c = Math.floor(Math.random() * 10 + 1);
   const problem = `${a} + ${b} × ${c}`;
   currentOrderAnswer = a + b * c;
-  document.getElementById("problem").innerText = problem;
+  document.getElementById("easy-problem-1").innerText = problem;
   document.getElementById("solution").innerText = "";
   document.getElementById("solution").style.display = "none";
   document.getElementById("easy-answer-1").value = "";

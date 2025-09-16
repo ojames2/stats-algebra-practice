@@ -12,57 +12,83 @@
   </header>
 
 <main>
+  
 <!-- Section 1: Order of Operations -->
 <section id="order-of-operations">
   <h2 style="text-align: center;">Order of Operation Practice</h2>
-  <div class="column easy">
-  <h3>Easy</h3>
-  <div class="problem-set">
-    <p>1. What is 3 + 5?</p>
-  <p id="easy-problem-1"
-  <input type="text" placeholder="Your answer">
-  <button id="new-problem-btn">New Problem</button>
-  <button id="reveal-answer-btn">Reveal Answer</button>
-  <p id="solution-1" style="display:none;">Answer: 8</p>
-    <p>2. Simplify: 2 × (4 + 1)</p>
-  <input type="text" placeholder="Your answer">
-  <button onclick="generateEasyProblem1()">New Problem</button>
-  <button onclick="showEasySolution1()">Reveal Answer</button>
-  <p id="easy-solution-1" style="display:none;">
-  </div>
-</div>
-<div class="column intermediate">
-  <h3>Intermediate</h3>
-  <div class="problem-set">
-    <p>1. What is (6 + 2) × 3?</p>
-  <input type="text" placeholder="Your answer">
-  <button onclick="generateEasyProblem1()">New Problem</button>
-  <button onclick="showEasySolution1()">Reveal Answer</button>
-  <p id="easy-solution-1" style="display:none;">
-    <p>2. Simplify: 12 ÷ (2 + 4)</p>
-  <input type="text" placeholder="Your answer">
-  <button onclick="generateEasyProblem1()">New Problem</button>
-  <button onclick="showEasySolution1()">Reveal Answer</button>
-  <p id="easy-solution-1" style="display:none;">
-  </div>
-</div>
-<div class="column advanced">
-  <h3>Advanced</h3>
-  <div class="problem-set">
-    <p>1. Evaluate: (3 + 5 × 2) ÷ (7 - 3)</p>
-  <input type="text" placeholder="Your answer">
-  <button onclick="generateEasyProblem1()">New Problem</button>
-  <button onclick="showEasySolution1()">Reveal Answer</button>
-  <p id="easy-solution-1" style="display:none;">
-    <p>2. Simplify: [(2 + 3) × 4] - 6</p>
-  <input type="text" placeholder="Your answer">
-  <button onclick="generateEasyProblem1()">New Problem</button>
-  <button onclick="showEasySolution1()">Reveal Answer</button>
-  <p id="easy-solution-1" style="display:none;">
-  </div>
-</div>
-</section>
 
+  <!-- Easy Column -->
+  <div class="column easy">
+    <h3>Easy</h3>
+    <div class="problem-set">
+
+      <div class="problem-block">
+        <p id="easy-problem-1">1. What is 3 + 5?</p>
+        <input type="text" id="easy-answer-1" placeholder="Your answer">
+        <button id="new-easy-btn-1">New Problem</button>
+        <button id="reveal-easy-btn-1">Reveal Answer</button>
+        <p id="easy-solution-1" style="display:none;">Answer: 8</p>
+      </div>
+
+      <div class="problem-block">
+        <p id="easy-problem-2">2. Simplify: 2 × (4 + 1)</p>
+        <input type="text" id="easy-answer-2" placeholder="Your answer">
+        <button id="new-easy-btn-2">New Problem</button>
+        <button id="reveal-easy-btn-2">Reveal Answer</button>
+        <p id="easy-solution-2" style="display:none;">Answer: 10</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Intermediate Column -->
+  <div class="column intermediate">
+    <h3>Intermediate</h3>
+    <div class="problem-set">
+
+      <div class="problem-block">
+        <p id="intermediate-problem-1">1. What is (6 + 2) × 3?</p>
+        <input type="text" id="intermediate-answer-1" placeholder="Your answer">
+        <button id="new-intermediate-btn-1">New Problem</button>
+        <button id="reveal-intermediate-btn-1">Reveal Answer</button>
+        <p id="intermediate-solution-1" style="display:none;">Answer: 24</p>
+      </div>
+
+      <div class="problem-block">
+        <p id="intermediate-problem-2">2. Simplify: 12 ÷ (2 + 4)</p>
+        <input type="text" id="intermediate-answer-2" placeholder="Your answer">
+        <button id="new-intermediate-btn-2">New Problem</button>
+        <button id="reveal-intermediate-btn-2">Reveal Answer</button>
+        <p id="intermediate-solution-2" style="display:none;">Answer: 2</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Advanced Column -->
+  <div class="column advanced">
+    <h3>Advanced</h3>
+    <div class="problem-set">
+
+      <div class="problem-block">
+        <p id="advanced-problem-1">1. Evaluate: (3 + 5 × 2) ÷ (7 - 3)</p>
+        <input type="text" id="advanced-answer-1" placeholder="Your answer">
+        <button id="new-advanced-btn-1">New Problem</button>
+        <button id="reveal-advanced-btn-1">Reveal Answer</button>
+        <p id="advanced-solution-1" style="display:none;">Answer: 3.5</p>
+      </div>
+
+      <div class="problem-block">
+        <p id="advanced-problem-2">2. Simplify: [(2 + 3) × 4] - 6</p>
+        <input type="text" id="advanced-answer-2" placeholder="Your answer">
+        <button id="new-advanced-btn-2">New Problem</button>
+        <button id="reveal-advanced-btn-2">Reveal Answer</button>
+        <p id="advanced-solution-2" style="display:none;">Answer: 14</p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- Section 2: Algebra -->
 <section id="algebra-practice">

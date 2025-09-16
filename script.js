@@ -7,8 +7,8 @@ function generateProblem() {
   const problem = `${a} + ${b} × ${c}`;
   currentOrderAnswer = a + b * c;
   document.getElementById("easy-problem-1").innerText = problem;
-  document.getElementById("solution").innerText = "";
-  document.getElementById("solution").style.display = "none";
+  document.getElementById("easy-solution-1").innerText = "";
+  document.getElementById("easy-solution-1").style.display = "none";
   document.getElementById("easy-answer-1").value = "";
 }
 function showSolution() {

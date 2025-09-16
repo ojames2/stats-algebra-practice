@@ -56,7 +56,6 @@ window.onload = function() {
   generateProblem();              // Order of Operations
   generateAlgebraProblem();       // Algebra
   generateRoundingProblem();      // Rounding
-};
 
 document.getElementById("new-problem-btn").addEventListener("click", generateProblem);
 document.getElementById("reveal-answer-btn").addEventListener("click", showSolution);
@@ -66,4 +65,5 @@ document.getElementById("reveal-algebra-btn").addEventListener("click", showAlge
 
 document.getElementById("new-rounding-btn").addEventListener("click", generateRoundingProblem);
 document.getElementById("reveal-rounding-btn").addEventListener("click", showRoundingSolution);
+};
 

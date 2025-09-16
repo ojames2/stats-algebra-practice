@@ -10,10 +10,11 @@ function generateProblem() {
   document.getElementById("easy-solution-1").innerText = "";
   document.getElementById("easy-solution-1").style.display = "none";
   document.getElementById("easy-answer-1").value = "";
+  const feedback = document.getElementById("easy-solution-1");
 }
 function showSolution() {
   const userAnswer = parseInt(document.getElementById("easy-answer-1").value);
-  const feedback = document.getElementById("solution");
+  const feedback = document.getElementById("easy-solution-1");
   if (isNaN(userAnswer)) {
     feedback.textContent = "Please enter a number.";
   } else if (userAnswer === currentOrderAnswer) {

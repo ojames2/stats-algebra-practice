@@ -58,3 +58,6 @@ window.onload = function() {
   generateRoundingProblem();      // Rounding
 };
 
+document.getElementById("new-problem-btn").addEventListener("click", generateProblem);
+document.getElementById("reveal-answer-btn").addEventListener("click", showSolution);
+};

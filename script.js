@@ -60,4 +60,10 @@ window.onload = function() {
 
 document.getElementById("new-problem-btn").addEventListener("click", generateProblem);
 document.getElementById("reveal-answer-btn").addEventListener("click", showSolution);
-};
+
+document.getElementById("new-algebra-btn").addEventListener("click", generateAlgebraProblem);
+document.getElementById("reveal-algebra-btn").addEventListener("click", showAlgebraSolution);
+
+document.getElementById("new-rounding-btn").addEventListener("click", generateRoundingProblem);
+document.getElementById("reveal-rounding-btn").addEventListener("click", showRoundingSolution);
+

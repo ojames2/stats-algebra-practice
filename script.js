@@ -1,25 +1,40 @@
 // Order of Operations Section
-let currentOrderAnswer = null;
+let currentEasyAnswer = null;
 function generateProblem() {
-  const a = Math.floor(Math.random() * 10 + 1);
-  const b = Math.floor(Math.random() * 10 + 1);
-  const c = Math.floor(Math.random() * 10 + 1);
-  const problem = `${a} + ${b} × ${c}`;
-  currentOrderAnswer = a + b * c;
-  document.getElementById("easy-problem-1").innerText = problem;
-  document.getElementById("easy-solution-1").innerText = "";
-  document.getElementById("easy-solution-1").style.display = "none";
+  const x = Math.floor(Math.random() * 10) + 1;
+  const y = Math.floor(Math.random() * 10) + 1;
+  const operators = ["+", "-", "*", "/"];
+  const operator = operators[Math.floor(Math.random() * operators.length)];
+  let problemText = `What is ${x} ${operator} ${y}?`;
+  // Calculate the correct answer
+  switch (operator) {
+    case "+":
+      currentEasyAnswer = x + y;
+      break;
+    case "-":
+      currentEasyAnswer = x - y;
+      break;
+    case "*":
+      currentEasyAnswer = x * y;
+      break;
+    case "/":
+      currentEasyAnswer = parseFloat((x / y).toFixed(2)); // Round to 2 decimals
+      break;
+  }
+  document.getElementById("easy-problem-1").innerText = problemText;
   document.getElementById("easy-answer-1").value = "";
+  document.getElementById("easy-solution-1").style.display = "none";
 }
+
 function showSolution() {
-  const userAnswer = parseInt(document.getElementById("easy-answer-1").value);
+  const userAnswer = parseFloat(document.getElementById("easy-answer-1").value);
   const feedback = document.getElementById("easy-solution-1");
   if (isNaN(userAnswer)) {
     feedback.textContent = "Please enter a number.";
-  } else if (userAnswer === currentOrderAnswer) {
+  } else if (userAnswer === currentEasyAnswer) {
     feedback.textContent = "✅ Correct!";
   } else {
-    feedback.textContent = `❌ Incorrect. The correct answer is ${currentOrderAnswer}.`;
+    feedback.textContent = `❌ Incorrect. The correct answer is ${currentEasyAnswer}.`;
   }
   feedback.style.display = "block";
 }

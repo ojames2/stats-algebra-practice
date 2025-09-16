@@ -19,10 +19,11 @@
   <h3>Easy</h3>
   <div class="problem-set">
     <p>1. What is 3 + 5?</p>
+  <p id="easy-problem-1">1. What is 3 + 5?</p>
   <input type="text" placeholder="Your answer">
-  <button onclick="generateEasyProblem1()">New Problem</button>
-  <button onclick="showEasySolution1()">Reveal Answer</button>
-  <p id="easy-solution-1" style="display:none;">
+  <button id="new-problem-btn">New Problem</button>
+  <button id="reveal-answer-btn">Reveal Answer</button>
+  <p id="solution-1" style="display:none;">Answer: 8</p>
     <p>2. Simplify: 2 × (4 + 1)</p>
   <input type="text" placeholder="Your answer">
   <button onclick="generateEasyProblem1()">New Problem</button>
@@ -67,9 +68,9 @@
 <section id="algebra-practice">
   <h2>Algebra Practice</h2>
   <p id="algebra-problem"></p>
-  <button onclick="generateAlgebraProblem()">New Problem</button>
+  <button id="new-algebra-btn">New Problem</button>
   <p id="algebra-solution" style="display:none;"></p>
-  <button onclick="showAlgebraSolution()">Reveal Answer</button>
+  <button id="reveal-algebra-btn">Reveal Answer</button>
 </section>
 
 

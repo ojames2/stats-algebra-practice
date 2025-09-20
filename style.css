@@ -44,6 +44,20 @@ section {
   border-left: 6px solid #ff7043; /* bold red-orange accent */
 }
 
+/* Light blue for Algebra Practice */
+#algebra-practice {
+  background-color: #add8e6; /* Light blue */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Light purple for Rounding Practice */
+#rounding-practice {
+  background-color: #d8bfd8; /* Light purple */
+  padding: 10px;
+  border-radius: 8px;
+}
+
 .column h3 {
   color: #4CAF50;
   font-size: 20px;

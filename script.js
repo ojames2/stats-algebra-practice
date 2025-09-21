@@ -1,45 +1,85 @@
 // Order of Operations Section
-//Level 1 Script
-let currentEasyAnswer = null;
-function generateProblem() {
+// Level 1 – Order of Operations
+let currentLevel1Answer = null;
+
+function generateLevel1Problem() {
   const x = Math.floor(Math.random() * 10) + 1;
   const y = Math.floor(Math.random() * 10) + 1;
-  const operators = ["+", "—", "*", "÷"];
+  const operators = ["+", "−", "×", "÷"];
   const operator = operators[Math.floor(Math.random() * operators.length)];
+
   let problemText = `What is ${x} ${operator} ${y}?`;
+
   // Calculate the correct answer
   switch (operator) {
     case "+":
-      currentEasyAnswer = x + y;
+      currentLevel1Answer = x + y;
       break;
-    case "—":
-      currentEasyAnswer = x - y;
+    case "−":
+      currentLevel1Answer = x - y;
       break;
-    case "x":
-      currentEasyAnswer = x * y;
+    case "×":
+      currentLevel1Answer = x * y;
       break;
     case "÷":
-      currentEasyAnswer = parseFloat((x / y).toFixed(2)); // Round to 2 decimals
+      currentLevel1Answer = parseFloat((x / y).toFixed(2));
       break;
   }
-  document.getElementById("easy-problem-1").innerText = problemText;
-  document.getElementById("easy-answer-1").value = "";
-  document.getElementById("easy-solution-1").style.display = "none";
+
+  document.getElementById("level1-problem-1").innerText = problemText;
+  document.getElementById("level1-answer-1").value = "";
+  document.getElementById("level1-solution-1").style.display = "none";
 }
-function showSolution() {
-  const userAnswer = parseFloat(document.getElementById("easy-answer-1").value);
-  const feedback = document.getElementById("easy-solution-1");
+
+function showLevel1Solution() {
+  const userAnswer = parseFloat(document.getElementById("level1-answer-1").value);
+  const feedback = document.getElementById("level1-solution-1");
+
   if (isNaN(userAnswer)) {
     feedback.textContent = "Please enter a number.";
-  } else if (userAnswer === currentEasyAnswer) {
+  } else if (Math.abs(userAnswer - currentLevel1Answer) < 0.01) {
     feedback.textContent = "✅ Correct!";
   } else {
-    feedback.textContent = `❌ Incorrect. The correct answer is ${currentEasyAnswer}.`;
+    feedback.textContent = `❌ Incorrect. The correct answer is ${currentLevel1Answer}.`;
   }
+
   feedback.style.display = "block";
 }
-//Level 2 Script
-// Level 3 Section
+
+//Level 2 – Order of Operations
+let currentLevel2Answer = null;
+
+function generateLevel2Problem() {
+  const a = Math.floor(Math.random() * 10 + 1);
+  const b = Math.floor(Math.random() * 10 + 1);
+  const y = Math.floor(Math.random() * 10 + 1);
+
+  const insideRoot = a + b;
+  const rootValue = Math.sqrt(insideRoot);
+  currentLevel2Answer = parseFloat((rootValue + y).toFixed(2));
+
+  const problemText = `What is √(${a} + ${b}) + ${y}?`;
+  document.getElementById("level2-problem-1").innerText = problemText;
+  document.getElementById("level2-answer-1").value = "";
+  document.getElementById("level2-solution-1").style.display = "none";
+}
+
+function showLevel2Solution() {
+  const userAnswer = parseFloat(document.getElementById("level2-answer-1").value);
+  const feedback = document.getElementById("level2-solution-1");
+
+  if (isNaN(userAnswer)) {
+    feedback.textContent = "Please enter a number.";
+  } else if (Math.abs(userAnswer - currentLevel2Answer) < 0.01) {
+    feedback.textContent = "✅ Correct!";
+  } else {
+    feedback.textContent = `❌ Incorrect. The correct answer is ${currentLevel2Answer}.`;
+  }
+
+  feedback.style.display = "block";
+}
+
+// Level 3 – Order of Operations
 let currentLevel3Answer = null;
 
 function generateLevel3Problem() {
@@ -127,9 +167,12 @@ window.onload = function() {
   generateRoundingProblem(); // Rounding
 
   // Add these event listeners to make buttons interactive
-  document.getElementById("new-problem-btn").addEventListener("click", generateProblem);
-  document.getElementById("reveal-answer-btn").addEventListener("click", showSolution);
+  document.getElementById("new-level1-btn-1").addEventListener("click", generateLevel1Problem);
+  document.getElementById("reveal-level1-btn-1").addEventListener("click", showLevel1Solution);
 
+  document.getElementById("new-level2-btn-1").addEventListener("click", generateLevel2Problem);
+  document.getElementById("reveal-level2-btn-1").addEventListener("click", showLevel2Solution);
+  
   document.getElementById("new-level3-btn-1").addEventListener("click", generateLevel3Problem);
   document.getElementById("reveal-level3-btn-1").addEventListener("click", showLevel3Solution);
 

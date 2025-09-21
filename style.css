@@ -92,19 +92,6 @@ button {
   margin-top: 12px;
 }
 
-.quiz-button-row button {
-  background-color: #6A5ACD;
-  border: none;
-  padding: 8px 16px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
 /* Base quiz button style */
 .quiz-btn {
   display: block;
@@ -132,3 +119,4 @@ button:hover {
   transform: scale(1.02);
   transition: all 0.2s ease-in-out;
 }
+

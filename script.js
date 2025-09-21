@@ -8,7 +8,7 @@ function generateLevel1Problem() {
   const answerInput = document.getElementById("level1-answer-1");
   const solutionElement = document.getElementById("level1-solution-1");
 
-  let a, b, c, d, correctAnswer;
+  let a, b, c, d, e, correctAnswer;
 
   do {
     // Generate numbers between 1 and 10
@@ -16,20 +16,20 @@ function generateLevel1Problem() {
     b = Math.floor(Math.random() * 10) + 1;
     c = Math.floor(Math.random() * 10) + 1;
     d = Math.floor(Math.random() * 10) + 1;
-
-    const denominator = d + 1; // avoid zero
+    e = Math.floor(Math.random() * 10) + 1;
 
     if (useParentheses) {
-      // Format: (a + b × c) ÷ (d + 1)
+      // Format: (a + b × c) ÷ (d + e)
       const numerator = a + b * c;
+      const denominator = d + e;
       correctAnswer = numerator / denominator;
-      problemElement.textContent = `Evaluate: (${a} + ${b} × ${c}) ÷ (${d} + 1)`;
+      problemElement.textContent = `Evaluate: (${a} + ${b} × ${c}) ÷ (${d} + ${e})`;
     } else {
-      // Format: a + b × c ÷ (d + 1)
-      correctAnswer = a + (b * c) / denominator;
-      problemElement.textContent = `Evaluate: ${a} + ${b} × ${c} ÷ (${d} + 1)`;
+      // Format: a + b × c ÷ d + e
+      correctAnswer = a + (b * c) / d + e;
+      problemElement.textContent = `Evaluate: ${a} + ${b} × ${c} ÷ ${d} + ${e}`;
     }
-  } while (!Number.isInteger(correctAnswer));
+  } while (!Number.isFinite(correctAnswer) || !Number.isInteger(correctAnswer));
 
   currentLevel1Answer = correctAnswer;
   useParentheses = !useParentheses; // toggle for next problem

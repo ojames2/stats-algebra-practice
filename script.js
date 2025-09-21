@@ -74,14 +74,13 @@ function generateLevel2Problem() {
     problemText = `What is √(${a} + ${b})?`;
   } else {
  // (a + b)² → whole number using evenly randomized values
-    const pool = [...Array(10).keys()].map(n => n + 1); // [1, 2, ..., 10]
-    const shuffled = pool.sort(() => 0.5 - Math.random());
-    a = shuffled[0];
-    b = shuffled[1];
-
-    const sum = a + b;
-    answer = sum * sum;
-
+    const perfectSquares = [4, 9, 16, 25, 36, 49, 64, 81, 100];
+    const target = perfectSquares[Math.floor(Math.random() * perfectSquares.length)];
+    
+    a = Math.floor(Math.random() * (target - 1) + 1);
+    b = target - a;
+    answer = target * target;
+    
     problemText = `What is (${a} + ${b})²?`;
   }
 

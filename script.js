@@ -177,6 +177,65 @@ function showLevel3Solution() {
   feedback.style.display = "block";
 }
 
+//Algebra Section
+let currentAlgebraAnswer1 = null;
+let useXInNumerator = true; // toggles between formats
+
+function generateAlgebraProblem1() {
+  let problemText = "";
+  let x;
+
+  if (useXInNumerator) {
+    // Format: (ax + c)/b = d → x is whole
+    const a = Math.floor(Math.random() * 5 + 1);     // 1–5
+    const xVal = Math.floor(Math.random() * 10 + 1); // 1–10
+    const c = Math.floor(Math.random() * 10);        // 0–9
+    const b = Math.floor(Math.random() * 5 + 1);     // 1–5
+
+    const numerator = a * xVal + c;
+    const d = numerator / b;
+
+    if (d % 1 !== 0) return generateAlgebraProblem1(); // retry if not whole
+
+    x = xVal;
+    problemText = `Solve for x: (${a}x + ${c}) / ${b} = ${d}`;
+  } else {
+    // Format: (a + b)/x = d → x is whole
+    const a = Math.floor(Math.random() * 10 + 1); // 1–10
+    const b = Math.floor(Math.random() * 10 + 1); // 1–10
+    const sum = a + b;
+    const possibleDivisors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].filter(n => sum % n === 0);
+    const xVal = possibleDivisors[Math.floor(Math.random() * possibleDivisors.length)];
+    const d = sum / xVal;
+
+    x = xVal;
+    problemText = `Solve for x: (${a} + ${b}) / x = ${d}`;
+  }
+
+  currentAlgebraAnswer1 = x;
+  useXInNumerator = !useXInNumerator; // toggle for next problem
+
+  document.getElementById("algebra-problem-1").textContent = problemText;
+  document.getElementById("algebra-answer-1").value = "";
+  document.getElementById("algebra-solution-1").style.display = "none";
+}
+
+function showAlgebraSolution1() {
+  const userAnswer = parseInt(document.getElementById("algebra-answer-1").value);
+  const feedback = document.getElementById("algebra-solution-1");
+
+  if (isNaN(userAnswer)) {
+    feedback.textContent = "Please enter a whole number.";
+  } else if (userAnswer === currentAlgebraAnswer1) {
+    feedback.textContent = "✅ Correct!";
+  } else {
+    feedback.textContent = `❌ Incorrect. The correct answer is x = ${currentAlgebraAnswer1}.`;
+  }
+
+  feedback.style.display = "block";
+}
+
+
 // Rounding Section
 function generateRoundingProblem() {
   const num = (Math.random() * 100).toFixed(5);
@@ -217,6 +276,8 @@ window.onload = function() {
 
   document.getElementById("new-algebra-btn-1").addEventListener("click", generateAlgebraProblem1);
   document.getElementById("reveal-algebra-btn-1").addEventListener("click", showAlgebraSolution1);
+
+  generateAlgebraProblem1(); // Show a problem on page load
 
   document.getElementById("new-rounding-btn").addEventListener("click", generateRoundingProblem);
   document.getElementById("reveal-rounding-btn").addEventListener("click", showRoundingSolution);

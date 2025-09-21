@@ -113,32 +113,76 @@ function showLevel2Solution() {
 
 // Level 3 – Order of Operations
 let currentLevel3Answer = null;
-let useSquareRootLevel3 = true; // toggles between √(...) and (...)²
+let formatIndex = 0; // cycles through 0–3 for A, B, C, D
 
 function generateLevel3Problem() {
-  let a, b, problemText, answer;
+  const problemElement = document.getElementById("level3-problem-1");
+  const answerInput = document.getElementById("level3-answer-1");
+  const solutionElement = document.getElementById("level3-solution-1");
 
-  if (useSquareRootLevel3) {
-    // √(a + b) → whole number
-    const perfectSquares = [4, 9, 16, 25, 36, 49, 64, 81, 100];
-    const target = perfectSquares[Math.floor(Math.random() * perfectSquares.length)];
+  let a, b, c, d, expression, correctAnswer;
 
-    a = Math.floor(Math.random() * (target - 1) + 1);
-    b = target - a;
-    answer = Math.sqrt(target);
+  do {
+    // Random integers from 1 to 10
+    a = Math.floor(Math.random() * 10) + 1;
+    b = Math.floor(Math.random() * 10) + 1;
+    c = Math.floor(Math.random() * 10) + 1;
+    d = Math.floor(Math.random() * 10) + 1;
 
-    problemText = `What is √(${a} + ${b})?`;
+    switch (formatIndex) {
+      case 0: // Format A: √(a + b) ÷ (c + d)
+        const rootNumerator = a + b;
+        const denominatorA = c + d;
+        if (!Number.isInteger(Math.sqrt(rootNumerator))) break;
+        correctAnswer = Math.sqrt(rootNumerator) / denominatorA;
+        expression = `Evaluate: √(${a} + ${b}) ÷ (${c} + ${d})`;
+        break;
+
+      case 1: // Format B: (a + b)² ÷ (c + d)
+        const squaredNumerator = Math.pow(a + b, 2);
+        const denominatorB = c + d;
+        correctAnswer = squaredNumerator / denominatorB;
+        expression = `Evaluate: (${a} + ${b})² ÷ (${c} + ${d})`;
+        break;
+
+      case 2: // Format C: (a + b) ÷ √(c + d)
+        const rootDenominator = c + d;
+        if (!Number.isInteger(Math.sqrt(rootDenominator))) break;
+        correctAnswer = (a + b) / Math.sqrt(rootDenominator);
+        expression = `Evaluate: (${a} + ${b}) ÷ √(${c} + ${d})`;
+        break;
+
+      case 3: // Format D: (a + b) ÷ (c + d)²
+        const squaredDenominator = Math.pow(c + d, 2);
+        correctAnswer = (a + b) / squaredDenominator;
+        expression = `Evaluate: (${a} + ${b}) ÷ (${c} + ${d})²`;
+        break;
+    }
+  } while (!Number.isFinite(correctAnswer) || !Number.isInteger(correctAnswer));
+
+  currentLevel3Answer = correctAnswer;
+  formatIndex = (formatIndex + 1) % 4; // cycle to next format
+
+  answerInput.value = "";
+  solutionElement.style.display = "none";
+  problemElement.textContent = expression;
+  solutionElement.textContent = `✅ Correct answer: ${correctAnswer}`;
+}
+
+function showLevel3Solution() {
+  const userAnswer = document.getElementById("level3-answer-1").value.trim();
+  const feedback = document.getElementById("level3-solution-1");
+
+  if (userAnswer === "") {
+    feedback.textContent = "Please enter a number.";
+  } else if (parseFloat(userAnswer) === currentLevel3Answer) {
+    feedback.textContent = `✅ Correct! The answer is ${currentLevel3Answer}.`;
   } else {
-    // (a + b)² → whole number
-    a = Math.floor(Math.random() * 10 + 1);
-    b = Math.floor(Math.random() * 10 + 1);
-    const sum = a + b;
-    answer = sum * sum;
-
-    problemText = `What is (${a} + ${b})²?`;
+    feedback.textContent = `❌ Incorrect. You entered ${userAnswer}, but the correct answer is ${currentLevel3Answer}.`;
   }
 
-  currentLevel3Answer = answer;
+  feedback.style.display = "block";
+}
 
   // Toggle for next problem
   useSquareRootLevel3 = !useSquareRootLevel3;

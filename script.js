@@ -122,7 +122,6 @@ function generateLevel3Problem() {
   let a, b, c, d, expression, correctAnswer;
 
   do {
-    // Random integers from 1 to 10
     a = Math.floor(Math.random() * 10) + 1;
     b = Math.floor(Math.random() * 10) + 1;
     c = Math.floor(Math.random() * 10) + 1;
@@ -132,7 +131,7 @@ function generateLevel3Problem() {
       case 0: // Format A: √(a + b) ÷ (c + d)
         const rootNumerator = a + b;
         const denominatorA = c + d;
-        if (!Number.isInteger(Math.sqrt(rootNumerator))) break;
+        if (!Number.isInteger(Math.sqrt(rootNumerator))) continue;
         correctAnswer = Math.sqrt(rootNumerator) / denominatorA;
         expression = `Evaluate: √(${a} + ${b}) ÷ (${c} + ${d})`;
         break;
@@ -146,7 +145,7 @@ function generateLevel3Problem() {
 
       case 2: // Format C: (a + b) ÷ √(c + d)
         const rootDenominator = c + d;
-        if (!Number.isInteger(Math.sqrt(rootDenominator))) break;
+        if (!Number.isInteger(Math.sqrt(rootDenominator))) continue;
         correctAnswer = (a + b) / Math.sqrt(rootDenominator);
         expression = `Evaluate: (${a} + ${b}) ÷ √(${c} + ${d})`;
         break;
@@ -160,7 +159,7 @@ function generateLevel3Problem() {
   } while (!Number.isFinite(correctAnswer) || !Number.isInteger(correctAnswer));
 
   currentLevel3Answer = correctAnswer;
-  formatIndex = (formatIndex + 1) % 4; // cycle to next format
+  formatIndex = (formatIndex + 1) % 4;
 
   answerInput.value = "";
   solutionElement.style.display = "none";
@@ -178,30 +177,6 @@ function showLevel3Solution() {
     feedback.textContent = `✅ Correct! The answer is ${currentLevel3Answer}.`;
   } else {
     feedback.textContent = `❌ Incorrect. You entered ${userAnswer}, but the correct answer is ${currentLevel3Answer}.`;
-  }
-
-  feedback.style.display = "block";
-}
-
-  // Toggle for next problem
-  useSquareRootLevel3 = !useSquareRootLevel3;
-
-  // Update DOM
-  document.getElementById("level3-problem-1").innerText = problemText;
-  document.getElementById("level3-answer-1").value = "";
-  document.getElementById("level3-solution-1").style.display = "none";
-}
-
-function showLevel3Solution() {
-  const userAnswer = parseInt(document.getElementById("level3-answer-1").value);
-  const feedback = document.getElementById("level3-solution-1");
-
-  if (isNaN(userAnswer)) {
-    feedback.textContent = "Please enter a whole number.";
-  } else if (userAnswer === currentLevel3Answer) {
-    feedback.textContent = "✅ Correct!";
-  } else {
-    feedback.textContent = `❌ Incorrect. The correct answer is ${currentLevel3Answer}.`;
   }
 
   feedback.style.display = "block";

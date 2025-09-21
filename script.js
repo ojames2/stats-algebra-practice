@@ -306,36 +306,27 @@ function showRoundingSolution() {
   feedback.style.display = "block";
 }
 
+//Window Onload Functions
 window.onload = function() {
-  generateProblem(); // Order of Operations
-  generateAlgebraProblem(); // Algebra
-  generateRoundingProblem(); // Rounding
-
-  // Add these event listeners to make buttons interactive
   document.getElementById("new-level1-btn-1").addEventListener("click", generateLevel1Problem);
   document.getElementById("reveal-level1-btn-1").addEventListener("click", showLevel1Solution);
-
-  generateLevel1Problem(); // Show a problem on page load
 
   document.getElementById("new-level2-btn-1").addEventListener("click", generateLevel2Problem);
   document.getElementById("reveal-level2-btn-1").addEventListener("click", showLevel2Solution);
 
-  generateLevel2Problem(); // Show a Level 2 problem on page load
-
   document.getElementById("new-level3-btn-1").addEventListener("click", generateLevel3Problem);
   document.getElementById("reveal-level3-btn-1").addEventListener("click", showLevel3Solution);
-
-  generateLevel3Problem(); // Show a Level 3 problem on page load
 
   document.getElementById("new-algebra-btn-1").addEventListener("click", generateAlgebraProblem1);
   document.getElementById("reveal-algebra-btn-1").addEventListener("click", showAlgebraSolution1);
 
-  generateAlgebraProblem1(); // Show a problem on page load
-
   document.getElementById("new-rounding-btn").addEventListener("click", generateRoundingProblem);
   document.getElementById("reveal-rounding-btn").addEventListener("click", showRoundingSolution);
 
-  generateRoundingProblem(); // Show a rounding problem on page load
+  // Trigger initial problems
+  generateLevel1Problem();
+  generateLevel2Problem();
+  generateLevel3Problem();
+  generateAlgebraProblem1();
+  generateRoundingProblem();
 };
-
-

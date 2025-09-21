@@ -73,9 +73,13 @@ function generateLevel2Problem() {
 
     problemText = `What is √(${a} + ${b})?`;
   } else {
-    // (a + b)² → whole number
-    a = Math.floor(Math.random() * 10 + 1);
-    b = Math.floor(Math.random() * 10 + 1);
+    
+  // (a + b)² → whole number
+    const pool = [...Array(10).keys()].map(n => n + 1); // [1, 2, ..., 10]
+    const shuffled = pool.sort(() => 0.5 - Math.random());
+    a = shuffled[0];
+    b = shuffled[1];
+
     const sum = a + b;
     answer = sum * sum;
 

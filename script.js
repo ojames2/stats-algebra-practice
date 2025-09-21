@@ -72,29 +72,50 @@ function showLevel1Solution() {
 
 //Level 2 – Order of Operations
 let currentLevel2Answer = null;
+let useSquareRoot = true; // toggles between √(...) and (...)²
 
 function generateLevel2Problem() {
-  const a = Math.floor(Math.random() * 10 + 1);
-  const b = Math.floor(Math.random() * 10 + 1);
-  const y = Math.floor(Math.random() * 10 + 1);
+  let a, b, problemText, answer;
 
-  const insideRoot = a + b;
-  const rootValue = Math.sqrt(insideRoot);
-  currentLevel2Answer = parseFloat((rootValue + y).toFixed(2));
+  if (useSquareRoot) {
+    // √(a + b) → whole number
+    // Choose a + b to be a perfect square
+    const perfectSquares = [4, 9, 16, 25, 36, 49, 64, 81, 100];
+    const target = perfectSquares[Math.floor(Math.random() * perfectSquares.length)];
 
-  const problemText = `What is √(${a} + ${b}) + ${y}?`;
+    a = Math.floor(Math.random() * (target - 1) + 1);
+    b = target - a;
+    answer = Math.sqrt(target);
+
+    problemText = `What is √(${a} + ${b})?`;
+  } else {
+    // (a + b)² → whole number
+    a = Math.floor(Math.random() * 10 + 1);
+    b = Math.floor(Math.random() * 10 + 1);
+    const sum = a + b;
+    answer = sum * sum;
+
+    problemText = `What is (${a} + ${b})²?`;
+  }
+
+  currentLevel2Answer = answer;
+
+  // Toggle for next problem
+  useSquareRoot = !useSquareRoot;
+
+  // Update DOM
   document.getElementById("level2-problem-1").innerText = problemText;
   document.getElementById("level2-answer-1").value = "";
   document.getElementById("level2-solution-1").style.display = "none";
 }
 
 function showLevel2Solution() {
-  const userAnswer = parseFloat(document.getElementById("level2-answer-1").value);
+  const userAnswer = parseInt(document.getElementById("level2-answer-1").value);
   const feedback = document.getElementById("level2-solution-1");
 
   if (isNaN(userAnswer)) {
-    feedback.textContent = "Please enter a number.";
-  } else if (Math.abs(userAnswer - currentLevel2Answer) < 0.01) {
+    feedback.textContent = "Please enter a whole number.";
+  } else if (userAnswer === currentLevel2Answer) {
     feedback.textContent = "✅ Correct!";
   } else {
     feedback.textContent = `❌ Incorrect. The correct answer is ${currentLevel2Answer}.`;
@@ -198,7 +219,9 @@ window.onload = function() {
 
   document.getElementById("new-level2-btn-1").addEventListener("click", generateLevel2Problem);
   document.getElementById("reveal-level2-btn-1").addEventListener("click", showLevel2Solution);
-  
+
+  generateLevel2Problem(); // Show a Level 2 problem on page load
+
   document.getElementById("new-level3-btn-1").addEventListener("click", generateLevel3Problem);
   document.getElementById("reveal-level3-btn-1").addEventListener("click", showLevel3Solution);
 

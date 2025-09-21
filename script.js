@@ -303,12 +303,15 @@ function showRoundingSolution() {
 
 //Window Onload Functions
 window.onload = function() {
+// Level 1 buttons
   document.getElementById("new-level1-btn-1").addEventListener("click", generateLevel1Problem);
   document.getElementById("reveal-level1-btn-1").addEventListener("click", showLevel1Solution);
 
+// Level 2 buttons
   document.getElementById("new-level2-btn-1").addEventListener("click", generateLevel2Problem);
   document.getElementById("reveal-level2-btn-1").addEventListener("click", showLevel2Solution);
 
+// Level 3 buttons
   document.getElementById("new-level3-btn-1").addEventListener("click", generateLevel3Problem);
   document.getElementById("reveal-level3-btn-1").addEventListener("click", showLevel3Solution);
 

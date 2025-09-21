@@ -182,36 +182,42 @@ function showLevel3Solution() {
   feedback.style.display = "block";
 }
 
-//Algebra Section
+// Algebra Section
 let currentAlgebraAnswer1 = null;
 let useXInNumerator = true; // toggles between formats
 
 function generateAlgebraProblem1() {
-  let problemText = "";
-  let x;
+  let a, b, c, xVal, x, d, problemText;
 
   if (useXInNumerator) {
-    // Format: (ax + c)/b = d → x is whole
-    const a = Math.floor(Math.random() * 5 + 1);     // 1–5
-    const xVal = Math.floor(Math.random() * 10 + 1); // 1–10
-    const c = Math.floor(Math.random() * 10);        // 0–9
-    const b = Math.floor(Math.random() * 5 + 1);     // 1–5
+    // Format A: (ax + c)/b = d → x is whole
+    a = Math.floor(Math.random() * 10) + 1;     // 1–10
+    xVal = Math.floor(Math.random() * 10) + 1;  // 1–10
+    c = Math.floor(Math.random() * 10) + 1;     // 1–10
+    b = Math.floor(Math.random() * 10) + 1;     // 1–10
 
     const numerator = a * xVal + c;
-    const d = numerator / b;
+    d = numerator / b;
 
-    if (d % 1 !== 0) return generateAlgebraProblem1(); // retry if not whole
+    if (!Number.isInteger(d)) return generateAlgebraProblem1(); // retry if not whole
 
     x = xVal;
     problemText = `Solve for x: (${a}x + ${c}) / ${b} = ${d}`;
   } else {
-    // Format: (a + b)/x = d → x is whole
-    const a = Math.floor(Math.random() * 10 + 1); // 1–10
-    const b = Math.floor(Math.random() * 10 + 1); // 1–10
+    // Format B: (a + b)/x = d → x is whole
+    a = Math.floor(Math.random() * 10) + 1;     // 1–10
+    b = Math.floor(Math.random() * 10) + 1;     // 1–10
     const sum = a + b;
-    const possibleDivisors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].filter(n => sum % n === 0);
-    const xVal = possibleDivisors[Math.floor(Math.random() * possibleDivisors.length)];
-    const d = sum / xVal;
+
+    const validDivisors = [];
+    for (let i = 1; i <= 10; i++) {
+      if (sum % i === 0) validDivisors.push(i);
+    }
+
+    if (validDivisors.length === 0) return generateAlgebraProblem1(); // retry if no valid x
+
+    xVal = validDivisors[Math.floor(Math.random() * validDivisors.length)];
+    d = sum / xVal;
 
     x = xVal;
     problemText = `Solve for x: (${a} + ${b}) / x = ${d}`;
@@ -232,14 +238,13 @@ function showAlgebraSolution1() {
   if (isNaN(userAnswer)) {
     feedback.textContent = "Please enter a whole number.";
   } else if (userAnswer === currentAlgebraAnswer1) {
-    feedback.textContent = "✅ Correct!";
+    feedback.textContent = `✅ Correct!`;
   } else {
     feedback.textContent = `❌ Incorrect. The correct answer is x = ${currentAlgebraAnswer1}.`;
   }
 
   feedback.style.display = "block";
 }
-
 
 // Rounding Section
 let currentRoundingAnswer = null;

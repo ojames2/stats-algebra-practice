@@ -237,21 +237,74 @@ function showAlgebraSolution1() {
 
 
 // Rounding Section
-function generateRoundingProblem() {
-  const num = (Math.random() * 100).toFixed(5);
-  const rounded = parseFloat(num).toFixed(2);
-  const problem = `Round ${num} to two decimal places`;
-  const answer = rounded;
+let currentRoundingAnswer = null;
+let useThreeDecimals = true; // toggles between XX.XXX and XX.XXXX
 
-  document.getElementById("rounding-problem").innerText = problem;
-  document.getElementById("rounding-solution").innerText = `Answer: ${answer}`;
+function generateRoundingProblem() {
+  let number;
+  if (useThreeDecimals) {
+    number = (Math.random() * 100).toFixed(3); // e.g., 45.678
+  } else {
+    number = (Math.random() * 100).toFixed(4); // e.g., 45.6789
+  }
+
+  currentRoundingAnswer = parseFloat(number).toFixed(2);
+  useThreeDecimals = !useThreeDecimals; // toggle for next problem
+
+  const problemText = `Round ${number} to two decimal places`;
+  document.getElementById("rounding-problem").textContent = problemText;
+  document.getElementById("rounding-answer").value = "";
   document.getElementById("rounding-solution").style.display = "none";
 }
 
 function showRoundingSolution() {
-  document.getElementById("rounding-solution").style.display = "block";
+  const userAnswer = document.getElementById("rounding-answer").value.trim();
+  const feedback = document.getElementById("rounding-solution");
+
+  if (userAnswer === "") {
+    feedback.textContent = "Please enter a number.";
+  } else if (parseFloat(userAnswer).toFixed(2) === currentRoundingAnswer) {
+    feedback.textContent = "✅ Correct!";
+  } else {
+    feedback.textContent = `❌ Incorrect. The correct answer is ${currentRoundingAnswer}.`;
+  }
+
+  feedback.style.display = "block";
+}
+let currentRoundingAnswer = null;
+let useThreeDecimals = true; // toggles between XX.XXX and XX.XXXX
+
+function generateRoundingProblem() {
+  let number;
+  if (useThreeDecimals) {
+    number = (Math.random() * 100).toFixed(3); // e.g., 45.678
+  } else {
+    number = (Math.random() * 100).toFixed(4); // e.g., 45.6789
+  }
+
+  currentRoundingAnswer = parseFloat(number).toFixed(2);
+  useThreeDecimals = !useThreeDecimals; // toggle for next problem
+
+  const problemText = `Round ${number} to two decimal places`;
+  document.getElementById("rounding-problem").textContent = problemText;
+  document.getElementById("rounding-answer").value = "";
+  document.getElementById("rounding-solution").style.display = "none";
 }
 
+function showRoundingSolution() {
+  const userAnswer = document.getElementById("rounding-answer").value.trim();
+  const feedback = document.getElementById("rounding-solution");
+
+  if (userAnswer === "") {
+    feedback.textContent = "Please enter a number.";
+  } else if (parseFloat(userAnswer).toFixed(2) === currentRoundingAnswer) {
+    feedback.textContent = "✅ Correct!";
+  } else {
+    feedback.textContent = `❌ Incorrect. The correct answer is ${currentRoundingAnswer}.`;
+  }
+
+  feedback.style.display = "block";
+}
 
 window.onload = function() {
   generateProblem(); // Order of Operations
@@ -281,6 +334,8 @@ window.onload = function() {
 
   document.getElementById("new-rounding-btn").addEventListener("click", generateRoundingProblem);
   document.getElementById("reveal-rounding-btn").addEventListener("click", showRoundingSolution);
+
+  generateRoundingProblem(); // Show a rounding problem on page load
 };
 
 

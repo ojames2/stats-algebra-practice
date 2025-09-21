@@ -78,21 +78,28 @@ function showLevel3Solution() {
 }
 
 
-// Algebra Section
-function generateAlgebraProblem() {
-  const x = Math.floor(Math.random() * 10 + 1);
-  const b = Math.floor(Math.random() * 10);
-  const result = 2 * x + b;
-  const problem = `Solve for x: 2x + ${b} = ${result}`;
-  const answer = x;
+// Algebra Practice – Fractional Equation
+let currentAlgebraAnswer1 = (7 * 4 - 5) / 3; // Solving (3x + 5)/4 = 7 → x = 7
 
-  document.getElementById("algebra-problem").innerText = problem;
-  document.getElementById("algebra-solution").innerText = `Answer: x = ${answer}`;
-  document.getElementById("algebra-solution").style.display = "none";
+function generateAlgebraProblem1() {
+  document.getElementById("algebra-problem-1").textContent = "1. Solve for x: (3x + 5) / 4 = 7";
+  document.getElementById("algebra-answer-1").value = "";
+  document.getElementById("algebra-solution-1").style.display = "none";
 }
 
-function showAlgebraSolution() {
-  document.getElementById("algebra-solution").style.display = "block";
+function showAlgebraSolution1() {
+  const userAnswer = parseFloat(document.getElementById("algebra-answer-1").value);
+  const feedback = document.getElementById("algebra-solution-1");
+
+  if (isNaN(userAnswer)) {
+    feedback.textContent = "Please enter a number.";
+  } else if (Math.abs(userAnswer - currentAlgebraAnswer1) < 0.01) {
+    feedback.textContent = "✅ Correct! x = 7";
+  } else {
+    feedback.textContent = `❌ Incorrect. The correct answer is x = 7.`;
+  }
+
+  feedback.style.display = "block";
 }
 
 
@@ -126,8 +133,8 @@ window.onload = function() {
   document.getElementById("new-level3-btn-1").addEventListener("click", generateLevel3Problem);
   document.getElementById("reveal-level3-btn-1").addEventListener("click", showLevel3Solution);
 
-  document.getElementById("new-algebra-btn").addEventListener("click", generateAlgebraProblem);
-  document.getElementById("reveal-algebra-btn").addEventListener("click", showAlgebraSolution);
+  document.getElementById("new-algebra-btn-1").addEventListener("click", generateAlgebraProblem1);
+  document.getElementById("reveal-algebra-btn-1").addEventListener("click", showAlgebraSolution1);
 
   document.getElementById("new-rounding-btn").addEventListener("click", generateRoundingProblem);
   document.getElementById("reveal-rounding-btn").addEventListener("click", showRoundingSolution);

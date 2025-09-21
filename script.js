@@ -301,6 +301,8 @@ window.onload = function() {
   document.getElementById("new-rounding-btn").addEventListener("click", generateRoundingProblem);
   document.getElementById("reveal-rounding-btn").addEventListener("click", showRoundingSolution);
 
+  document.getElementById("comprehensive-quiz-btn").addEventListener("click", launchComprehensiveQuiz);
+
   // Trigger initial problems
   generateLevel1Problem();
   generateLevel2Problem();

@@ -73,8 +73,7 @@ function generateLevel2Problem() {
 
     problemText = `What is √(${a} + ${b})?`;
   } else {
-    
-  // (a + b)² → whole number
+ // (a + b)² → whole number using evenly randomized values
     const pool = [...Array(10).keys()].map(n => n + 1); // [1, 2, ..., 10]
     const shuffled = pool.sort(() => 0.5 - Math.random());
     a = shuffled[0];

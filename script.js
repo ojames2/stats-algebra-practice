@@ -3,29 +3,21 @@
 let currentLevel1Answer = null;
 
 function generateLevel1Problem() {
-  const x = Math.floor(Math.random() * 10) + 1;
-  const y = Math.floor(Math.random() * 10) + 1;
-  const operators = ["+", "−", "×", "÷"];
-  const operator = operators[Math.floor(Math.random() * operators.length)];
+  // Generate random numbers
+  const a = Math.floor(Math.random() * 10 + 1); // 1–10
+  const b = Math.floor(Math.random() * 10 + 1);
+  const c = Math.floor(Math.random() * 5 + 1);  // 1–5
+  const d = Math.floor(Math.random() * 5 + 1);  // 1–5
 
-  let problemText = `What is ${x} ${operator} ${y}?`;
+  // Construct the expression: (a + b × c) ÷ (d + 1)
+  const problemText = `Evaluate: (${a} + ${b} × ${c}) ÷ (${d} + 1)`;
 
-  // Calculate the correct answer
-  switch (operator) {
-    case "+":
-      currentLevel1Answer = x + y;
-      break;
-    case "−":
-      currentLevel1Answer = x - y;
-      break;
-    case "×":
-      currentLevel1Answer = x * y;
-      break;
-    case "÷":
-      currentLevel1Answer = parseFloat((x / y).toFixed(2));
-      break;
-  }
+  // Compute the correct answer
+  const numerator = a + b * c;
+  const denominator = d + 1;
+  currentLevel1Answer = parseFloat((numerator / denominator).toFixed(2));
 
+  // Update the DOM
   document.getElementById("level1-problem-1").innerText = problemText;
   document.getElementById("level1-answer-1").value = "";
   document.getElementById("level1-solution-1").style.display = "none";

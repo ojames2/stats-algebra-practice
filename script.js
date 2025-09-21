@@ -114,7 +114,7 @@ function showLevel3Solution() {
 let currentAlgebraAnswer1 = (7 * 4 - 5) / 3; // Solving (3x + 5)/4 = 7 → x = 7
 
 function generateAlgebraProblem1() {
-  document.getElementById("algebra-problem-1").textContent = "1. Solve for x: (3x + 5) / 4 = 7";
+  document.getElementById("algebra-problem-1").textContent = "Solve for x: (3x + 5) / 4 = 7";
   document.getElementById("algebra-answer-1").value = "";
   document.getElementById("algebra-solution-1").style.display = "none";
 }

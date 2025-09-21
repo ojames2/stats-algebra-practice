@@ -16,7 +16,7 @@
 <!-- Section 1: Order of Operations -->
 <section id="order-of-operations">
   <h2 style="text-align: center;">Order of Operation Practice</h2>
-  <!-- Level 1 Column -->
+<!-- Level 1 Column -->
 <div class="column level-1">
   <h3>Level 1</h3>
   <div class="problem-set">
@@ -35,51 +35,65 @@
   </div>
 </div>
 
-  <!-- Level 2 Column -->
-  <div class="column level-2">
-    <h3>Level 2</h3>
-    <div class="problem-set">
-      <div class="problem-block">
-        <p id="level2-problem-1">What is √(9 + 7) + 4?</p>
-        <input type="text" id="level2-answer-1" placeholder="Your answer">
-        <button id="new-level2-btn-1" onclick="generateLevel2Problem()">New Problem</button>
+<!-- Level 2 Column -->
+<div class="column level-2">
+  <h3>Level 2</h3>
+  <div class="problem-set">
+    <div class="problem-block">
+      <p id="level2-problem-1">What is √(9 + 7) + 4?</p>
+      <input type="text" id="level2-answer-1" placeholder="Your answer">
+      <div class="button-row">
+        <button id="new-level2-btn-1">New Problem</button>
         <button id="reveal-level2-btn-1">Reveal Answer</button>
-        <p id="level2-solution-1" style="display:none;">Answer: 24</p>
       </div>
+      <div class="quiz-button-row">
+        <button id="quiz-level2-btn-1">🎯 Take a Quiz</button>
+      </div>
+      <p id="level2-solution-1" style="display:none;"></p>
     </div>
   </div>
+</div>
 
-  <!-- Level 3 Column -->
-  <div class="column level-3">
-    <h3>Level 3</h3>
-    <div class="problem-set">
-      <div class="problem-block">
-        <p id="level3-problem-1">Evaluate: (3 + 5 × 2) ÷ (7 - 3)</p>
-        <input type="text" id="level3-answer-1" placeholder="Your answer">
-          <button id="new-level3-btn-1" onclick="generateLevel3Problem()">New Problem</button>
-          <button id="reveal-level3-btn-1" onclick="showLevel3Solution()">Reveal Answer</button>
-        <p id="level3-solution-1" style="display:none;">Answer: 3.5</p>
+<!-- Level 3 Column -->
+<div class="column level-3">
+  <h3>Level 3</h3>
+  <div class="problem-set">
+    <div class="problem-block">
+      <p id="level3-problem-1">What is √(9 + 7)?</p>
+      <input type="text" id="level3-answer-1" placeholder="Your answer">
+      <div class="button-row">
+        <button id="new-level3-btn-1">New Problem</button>
+        <button id="reveal-level3-btn-1">Reveal Answer</button>
       </div>
+      <div class="quiz-button-row">
+        <button id="quiz-level3-btn-1">🎯 Take a Quiz</button>
+      </div>
+      <p id="level3-solution-1" style="display:none;"></p>
     </div>
   </div>
-</section>
+</div>
+
 
 <!-- Section 2: Algebra -->
 <section id="algebra-practice">
   <h2>Algebra Practice</h2>
   <div class="column algebra">
     <div class="problem-set">
-    <div class="problem-block">
-      <p id="algebra-problem-1">Solve for x: (3x + 5) / 4 = 7</p>
-      <input type="text" id="algebra-answer-1" placeholder="Your answer">
-        <button id="new-algebra-btn-1" onclick="generateAlgebraProblem1()">New Problem</button>
-        <button id="reveal-algebra-btn-1" onclick="showAlgebraSolution1()">Reveal Answer</button>
-      <p id="algebra-solution-1" style="display:none;"></p>
-    </div>
+      <div class="problem-block">
+        <p id="algebra-problem-1">Solve for x: (3x + 5) / 4 = 7</p>
+        <input type="text" id="algebra-answer-1" placeholder="Your answer">
+        <div class="button-row">
+          <button id="new-algebra-btn-1">New Problem</button>
+          <button id="reveal-algebra-btn-1">Reveal Answer</button>
+        </div>
+        <div class="quiz-button-row">
+          <button id="quiz-algebra-btn-1">🎯 Take a Quiz</button>
+        </div>
+        <p id="algebra-solution-1" style="display:none;"></p>
+      </div>
     </div>
   </div>
 </section>
-
 
 <!-- Section 3: Rounding -->
 <section id="rounding-practice">
@@ -89,8 +103,13 @@
       <div class="problem-block">
         <p id="rounding-problem">Round 45.67891 to two decimal places</p>
         <input type="text" id="rounding-answer" placeholder="Your answer">
-        <button id="new-rounding-btn" onclick="generateRoundingProblem()">New Problem</button>
-        <button id="reveal-rounding-btn" onclick="showRoundingSolution()">Reveal Answer</button>
+        <div class="button-row">
+          <button id="new-rounding-btn">New Problem</button>
+          <button id="reveal-rounding-btn">Reveal Answer</button>
+        </div>
+        <div class="quiz-button-row">
+          <button id="quiz-rounding-btn">🎯 Take a Quiz</button>
+        </div>
         <p id="rounding-solution" style="display:none;"></p>
       </div>
     </div>

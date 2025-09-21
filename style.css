@@ -62,9 +62,9 @@ section {
   margin-bottom: 10px;
 }
 
-.easy h3,
-.intermediate h3,
-.advanced h3 {
+.level-1 h3,
+.level-2 h3,
+.level-3 h3 {
   color: black;
 }
 

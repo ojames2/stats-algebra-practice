@@ -29,33 +29,31 @@ section {
   text-align: center;
 }
 
-.easy {
+.level-1 {
   background-color: #e6f4ea; /* soft green background */
   border-left: 6px solid #4CAF50; /* bold green accent */
 }
 
-.intermediate {
+.level-2{
   background-color: #fff8e1; /* soft dark yellow background */
   border-left: 6px solid #f4b400; /* bold dark yellow accent */
 }
 
-.advanced {
+.level-3 {
   background-color: #ffe5e0; /* soft red-orange background */
   border-left: 6px solid #ff7043; /* bold red-orange accent */
 }
 
-/* Light blue for Algebra Practice */
-#algebra-practice {
-  background-color: #add8e6; /* Light blue */
-  padding: 10px;
-  border-radius: 8px;
+/* Light blue styling for Algebra Practice */
+.algebra {
+  background-color: #add8e6; /* Light blue background */
+  border-left: 6px solid #2196F3; /* Bold blue accent */
 }
 
-/* Light purple for Rounding Practice */
-#rounding-practice {
-  background-color: #d8bfd8; /* Light purple */
-  padding: 10px;
-  border-radius: 8px;
+/* Light purple styling for Rounding Practice */
+.rounding {
+  background-color: #d8bfd8; /* Light purple background */
+  border-left: 6px solid #9c27b0; /* Bold purple accent */
 }
 
 .column h3 {

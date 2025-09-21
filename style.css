@@ -104,3 +104,32 @@ button {
 button:hover {
   background-color: #45a049;
 }
+
+/* Quiz Button Base Style */
+.quiz-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
+  font-size: 1em;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* Section-Specific Quiz Button Colors */
+.quiz-btn-level1     { background-color: #2c7a7b; }  /* Order of Operations – Deep teal */
+.quiz-btn-level2     { background-color: #6b5b95; }  /* Square Roots – Plum purple */
+.quiz-btn-level3     { background-color: #4f7942; }  /* Algebra – Forest green */
+.quiz-btn-rounding   { background-color: #d4a017; }  /* Rounding – Golden amber */
+.quiz-btn-quiz       { background-color: #c49b6c; }  /* Comprehensive Quiz – Light brown */
+
+/* Optional hover effect */
+.quiz-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+}
+

@@ -1,4 +1,5 @@
 // Order of Operations Section
+//Level 1 Script
 let currentEasyAnswer = null;
 function generateProblem() {
   const x = Math.floor(Math.random() * 10) + 1;
@@ -35,6 +36,44 @@ function showSolution() {
   } else {
     feedback.textContent = `❌ Incorrect. The correct answer is ${currentEasyAnswer}.`;
   }
+  feedback.style.display = "block";
+}
+//Level 2 Script
+// Level 3 Section
+let currentLevel3Answer = null;
+
+function generateLevel3Problem() {
+  const a = Math.floor(Math.random() * 10 + 1); // 1–10
+  const b = Math.floor(Math.random() * 10 + 1);
+  const y = Math.floor(Math.random() * 10 + 1);
+  const z = Math.floor(Math.random() * 5 + 1);  // 1–5
+  const w = Math.floor(Math.random() * 5 + 1);  // 1–5
+
+  const insideRoot = a + b;
+  const rootValue = Math.sqrt(insideRoot);
+  const numerator = rootValue + y;
+  const denominator = z * w;
+  currentLevel3Answer = parseFloat((numerator / denominator).toFixed(2));
+
+  const problem = `What is (√(${a} + ${b}) + ${y}) ÷ (${z} × ${w})?`;
+
+  document.getElementById("level3-problem-1").innerText = problem;
+  document.getElementById("level3-answer-1").value = "";
+  document.getElementById("level3-solution-1").style.display = "none";
+}
+
+function showLevel3Solution() {
+  const userAnswer = parseFloat(document.getElementById("level3-answer-1").value);
+  const feedback = document.getElementById("level3-solution-1");
+
+  if (isNaN(userAnswer)) {
+    feedback.textContent = "Please enter a number.";
+  } else if (Math.abs(userAnswer - currentLevel3Answer) < 0.01) {
+    feedback.textContent = "✅ Correct!";
+  } else {
+    feedback.textContent = `❌ Incorrect. The correct answer is ${currentLevel3Answer}.`;
+  }
+
   feedback.style.display = "block";
 }
 

@@ -126,34 +126,49 @@ function showLevel2Solution() {
 
 // Level 3 – Order of Operations
 let currentLevel3Answer = null;
+let useSquareRootLevel3 = true; // toggles between √(...) and (...)²
 
 function generateLevel3Problem() {
-  const a = Math.floor(Math.random() * 10 + 1); // 1–10
-  const b = Math.floor(Math.random() * 10 + 1);
-  const y = Math.floor(Math.random() * 10 + 1);
-  const z = Math.floor(Math.random() * 5 + 1);  // 1–5
-  const w = Math.floor(Math.random() * 5 + 1);  // 1–5
+  let a, b, problemText, answer;
 
-  const insideRoot = a + b;
-  const rootValue = Math.sqrt(insideRoot);
-  const numerator = rootValue + y;
-  const denominator = z * w;
-  currentLevel3Answer = parseFloat((numerator / denominator).toFixed(2));
+  if (useSquareRootLevel3) {
+    // √(a + b) → whole number
+    const perfectSquares = [4, 9, 16, 25, 36, 49, 64, 81, 100];
+    const target = perfectSquares[Math.floor(Math.random() * perfectSquares.length)];
 
-  const problem = `What is (√(${a} + ${b}) + ${y}) ÷ (${z} × ${w})?`;
+    a = Math.floor(Math.random() * (target - 1) + 1);
+    b = target - a;
+    answer = Math.sqrt(target);
 
-  document.getElementById("level3-problem-1").innerText = problem;
+    problemText = `What is √(${a} + ${b})?`;
+  } else {
+    // (a + b)² → whole number
+    a = Math.floor(Math.random() * 10 + 1);
+    b = Math.floor(Math.random() * 10 + 1);
+    const sum = a + b;
+    answer = sum * sum;
+
+    problemText = `What is (${a} + ${b})²?`;
+  }
+
+  currentLevel3Answer = answer;
+
+  // Toggle for next problem
+  useSquareRootLevel3 = !useSquareRootLevel3;
+
+  // Update DOM
+  document.getElementById("level3-problem-1").innerText = problemText;
   document.getElementById("level3-answer-1").value = "";
   document.getElementById("level3-solution-1").style.display = "none";
 }
 
 function showLevel3Solution() {
-  const userAnswer = parseFloat(document.getElementById("level3-answer-1").value);
+  const userAnswer = parseInt(document.getElementById("level3-answer-1").value);
   const feedback = document.getElementById("level3-solution-1");
 
   if (isNaN(userAnswer)) {
-    feedback.textContent = "Please enter a number.";
-  } else if (Math.abs(userAnswer - currentLevel3Answer) < 0.01) {
+    feedback.textContent = "Please enter a whole number.";
+  } else if (userAnswer === currentLevel3Answer) {
     feedback.textContent = "✅ Correct!";
   } else {
     feedback.textContent = `❌ Incorrect. The correct answer is ${currentLevel3Answer}.`;
@@ -161,33 +176,6 @@ function showLevel3Solution() {
 
   feedback.style.display = "block";
 }
-
-
-// Algebra Practice – Fractional Equation
-let currentAlgebraAnswer1 = (7 * 4 - 5) / 3; // Solving (3x + 5)/4 = 7 → x = 7
-
-function generateAlgebraProblem1() {
-  document.getElementById("algebra-problem-1").textContent = "Solve for x: (3x + 5) / 4 = 7";
-  document.getElementById("algebra-answer-1").value = "";
-  document.getElementById("algebra-solution-1").style.display = "none";
-}
-
-function showAlgebraSolution1() {
-  const userAnswer = parseFloat(document.getElementById("algebra-answer-1").value);
-  const feedback = document.getElementById("algebra-solution-1");
-
-  if (isNaN(userAnswer)) {
-    feedback.textContent = "Please enter a number.";
-  } else if (Math.abs(userAnswer - currentAlgebraAnswer1) < 0.01) {
-    feedback.textContent = "✅ Correct! x = 7";
-  } else {
-    feedback.textContent = `❌ Incorrect. The correct answer is x = 7.`;
-  }
-
-  feedback.style.display = "block";
-}
-
-
 
 // Rounding Section
 function generateRoundingProblem() {
@@ -224,6 +212,8 @@ window.onload = function() {
 
   document.getElementById("new-level3-btn-1").addEventListener("click", generateLevel3Problem);
   document.getElementById("reveal-level3-btn-1").addEventListener("click", showLevel3Solution);
+
+  generateLevel3Problem(); // Show a Level 3 problem on page load
 
   document.getElementById("new-algebra-btn-1").addEventListener("click", generateAlgebraProblem1);
   document.getElementById("reveal-algebra-btn-1").addEventListener("click", showAlgebraSolution1);

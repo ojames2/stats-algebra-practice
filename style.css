@@ -105,7 +105,7 @@ button:hover {
   background-color: #45a049;
 }
 
-/* Quiz Button Base Style */
+/* Base quiz button style */
 .quiz-btn {
   display: block;
   margin: 20px auto;
@@ -119,12 +119,12 @@ button:hover {
   font-family: "Times New Roman", Times, serif;
 }
 
-/* Section-Specific Quiz Button Colors */
-.quiz-btn-level1     { background-color: #2c7a7b; }  /* Order of Operations – Deep teal */
-.quiz-btn-level2     { background-color: #6b5b95; }  /* Square Roots – Plum purple */
-.quiz-btn-level3     { background-color: #4f7942; }  /* Algebra – Forest green */
-.quiz-btn-rounding   { background-color: #d4a017; }  /* Rounding – Golden amber */
-.quiz-btn-quiz       { background-color: #c49b6c; }  /* Comprehensive Quiz – Light brown */
+/* Section-specific quiz button colors */
+.quiz-button-row button.quiz-btn-level1   { background-color: #2c7a7b; }  /* Order of Operations */
+.quiz-button-row button.quiz-btn-level2   { background-color: #6b5b95; }  /* Square Roots */
+.quiz-button-row button.quiz-btn-level3   { background-color: #4f7942; }  /* Algebra */
+.quiz-button-row button.quiz-btn-rounding { background-color: #d4a017; }  /* Rounding */
+.quiz-button-row button.quiz-btn-quiz     { background-color: #c49b6c; }  /* Comprehensive Quiz */
 
 /* Optional hover effect */
 .quiz-btn:hover {
@@ -132,4 +132,3 @@ button:hover {
   transform: scale(1.02);
   transition: all 0.2s ease-in-out;
 }
-

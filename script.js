@@ -1,70 +1,54 @@
 // Order of Operations Section
 // Level 1 – Order of Operations
 let currentLevel1Answer = null;
-let useParentheses = true; // toggles between problem types
+let useParentheses = true; // toggles between formats
 
 function generateLevel1Problem() {
-  let problemText = "";
-  let answer = 0;
+  const problemElement = document.getElementById("level1-problem-1");
+  const answerInput = document.getElementById("level1-answer-1");
+  const solutionElement = document.getElementById("level1-solution-1");
 
-  if (useParentheses) {
-    // Complex expression with parentheses
-    const a = Math.floor(Math.random() * 10 + 1);
-    const b = Math.floor(Math.random() * 5 + 1);
-    const c = Math.floor(Math.random() * 5 + 1);
-    const d = Math.floor(Math.random() * 5 + 1);
+  let a, b, c, d, correctAnswer;
 
-    // Ensure denominator divides evenly
-    const numerator = a + b * c;
-    const denominator = d + 1;
+  do {
+    // Generate numbers between 1 and 10
+    a = Math.floor(Math.random() * 10) + 1;
+    b = Math.floor(Math.random() * 10) + 1;
+    c = Math.floor(Math.random() * 10) + 1;
+    d = Math.floor(Math.random() * 10) + 1;
 
-    answer = Math.floor(numerator / denominator);
-    problemText = `Evaluate: (${a} + ${b} × ${c}) ÷ (${d} + 1)`;
+    const denominator = d + 1; // avoid zero
 
-    // Adjust numerator to ensure whole number result
-    answer = Math.floor(answer);
-    currentLevel1Answer = answer;
-  } else {
-    // Simple expression without parentheses
-    const x = Math.floor(Math.random() * 10 + 1);
-    const y = Math.floor(Math.random() * 10 + 1);
-    const operator = ["+", "−", "×"][Math.floor(Math.random() * 3)];
-
-    switch (operator) {
-      case "+":
-        answer = x + y;
-        break;
-      case "−":
-        answer = x - y;
-        break;
-      case "×":
-        answer = x * y;
-        break;
+    if (useParentheses) {
+      // Format: (a + b × c) ÷ (d + 1)
+      const numerator = a + b * c;
+      correctAnswer = numerator / denominator;
+      problemElement.textContent = `Evaluate: (${a} + ${b} × ${c}) ÷ (${d} + 1)`;
+    } else {
+      // Format: a + b × c ÷ (d + 1)
+      correctAnswer = a + (b * c) / denominator;
+      problemElement.textContent = `Evaluate: ${a} + ${b} × ${c} ÷ (${d} + 1)`;
     }
+  } while (!Number.isInteger(correctAnswer));
 
-    problemText = `What is ${x} ${operator} ${y}?`;
-    currentLevel1Answer = answer;
-  }
+  currentLevel1Answer = correctAnswer;
+  useParentheses = !useParentheses; // toggle for next problem
 
-  // Toggle for next problem
-  useParentheses = !useParentheses;
-
-  // Update DOM
-  document.getElementById("level1-problem-1").innerText = problemText;
-  document.getElementById("level1-answer-1").value = "";
-  document.getElementById("level1-solution-1").style.display = "none";
+  answerInput.value = "";
+  solutionElement.style.display = "none";
+  solutionElement.textContent = `✅ Correct answer: ${correctAnswer}`;
 }
 
 function showLevel1Solution() {
-  const userAnswer = parseInt(document.getElementById("level1-answer-1").value);
+  const userAnswer = document.getElementById("level1-answer-1").value.trim();
   const feedback = document.getElementById("level1-solution-1");
 
-  if (isNaN(userAnswer)) {
-    feedback.textContent = "Please enter a whole number.";
-  } else if (userAnswer === currentLevel1Answer) {
-    feedback.textContent = "✅ Correct!";
+  if (userAnswer === "") {
+    feedback.textContent = "Please enter a number.";
+  } else if (parseFloat(userAnswer) === currentLevel1Answer) {
+    feedback.textContent = `✅ Correct! The answer is ${currentLevel1Answer}.`;
   } else {
-    feedback.textContent = `❌ Incorrect. The correct answer is ${currentLevel1Answer}.`;
+    feedback.textContent = `❌ Incorrect. You entered ${userAnswer}, but the correct answer is ${currentLevel1Answer}.`;
   }
 
   feedback.style.display = "block";

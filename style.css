@@ -79,6 +79,28 @@ button {
   border-radius: 5px;
 }
 
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.quiz-button-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.quiz-button-row button {
+  background-color: #ffd700;
+  border: none;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
 button:hover {
   background-color: #45a049;
 }

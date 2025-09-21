@@ -108,10 +108,10 @@ button {
 
 /* Section-specific quiz button colors */
 .quiz-button-row button.quiz-btn-level1   { background-color: #2c7a7b; }  /* Order of Operations */
-.quiz-button-row button.quiz-btn-level2   { background-color: #F5DEB3; }  /* Square Roots */
+.quiz-button-row button.quiz-btn-level2   { background-color: #DFAF2C; }  /* Square Roots */
 .quiz-button-row button.quiz-btn-level3   { background-color: #FF6F61; }  /* Level 3 Button */
 .quiz-button-row button.quiz-btn-algebra  { background-color: #4682B4; } /* Algebra Button*/
-.quiz-button-row button.quiz-btn-rounding { background-color: #DDA0DD; }  /* Rounding */
+.quiz-button-row button.quiz-btn-rounding { background-color: #614051; }  /* Rounding */
 .quiz-button-row button.quiz-btn-quiz     { background-color: #c49b6c; }  /* Comprehensive Quiz */
 
 /* Optional hover effect */

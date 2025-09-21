@@ -123,6 +123,9 @@ window.onload = function() {
   document.getElementById("new-problem-btn").addEventListener("click", generateProblem);
   document.getElementById("reveal-answer-btn").addEventListener("click", showSolution);
 
+  document.getElementById("new-level3-btn-1").addEventListener("click", generateLevel3Problem);
+  document.getElementById("reveal-level3-btn-1").addEventListener("click", showLevel3Solution);
+
   document.getElementById("new-algebra-btn").addEventListener("click", generateAlgebraProblem);
   document.getElementById("reveal-algebra-btn").addEventListener("click", showAlgebraSolution);
 

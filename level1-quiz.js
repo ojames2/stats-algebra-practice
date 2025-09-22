@@ -67,3 +67,11 @@ function gradeQuiz(event) {
 
 document.getElementById("level1-quiz-form").addEventListener("submit", gradeQuiz);
 generateQuiz();
+
+document.getElementById("retake-quiz-btn").addEventListener("click", () => {
+  document.getElementById("quiz-questions").innerHTML = "";
+  document.getElementById("quiz-results").style.display = "none";
+  questions.length = 0;
+  generateQuiz();
+});
+

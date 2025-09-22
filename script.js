@@ -303,7 +303,7 @@ window.onload = function() {
 
   document.getElementById("comprehensive-quiz-btn").addEventListener("click", launchComprehensiveQuiz);
 
-  document.getElementById("quiz-rounding-btn").addEventListener("click", () => {
+  document.getElementById("quiz-level1-btn").addEventListener("click", () => {
   window.open("level1-quiz.html", "Level1Quiz", "width=800,height=600");
 
   // Trigger initial problems

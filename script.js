@@ -311,12 +311,4 @@ generateLevel2Problem();
 generateLevel3Problem();
 generateAlgebraProblem1();
 generateRoundingProblem();
-};
 
-  // Trigger initial problems
-  generateLevel1Problem();
-  generateLevel2Problem();
-  generateLevel3Problem();
-  generateAlgebraProblem1();
-  generateRoundingProblem();
-};

@@ -299,12 +299,12 @@ window.onload = function() {
   document.getElementById("new-rounding-btn").addEventListener("click", generateRoundingProblem);
   document.getElementById("reveal-rounding-btn").addEventListener("click", showRoundingSolution);
 //Comprehensive quiz button
-  document.getElementById("comprehensive-quiz-btn").addEventListener("click", launchComprehensiveQuiz);
-  document.getElementById("comprehensive-quiz-btn").addEventListener("click", launchComprehensiveQuiz);
+//  document.getElementById("comprehensive-quiz-btn").addEventListener("click", launchComprehensiveQuiz);
+ // document.getElementById("comprehensive-quiz-btn").addEventListener("click", launchComprehensiveQuiz);
 //Level 1 quiz button
 //document.getElementById("quiz-level1-btn-1").addEventListener("click", () => {
 //  window.open("level1-quiz.html", "Level1Quiz", "width=800,height=600");
-});
+}
 
 // Trigger initial problems
 generateLevel1Problem();

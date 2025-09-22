@@ -286,24 +286,22 @@ window.onload = function() {
 // Level 1 buttons
   document.getElementById("new-level1-btn-1").addEventListener("click", generateLevel1Problem);
   document.getElementById("reveal-level1-btn-1").addEventListener("click", showLevel1Solution);
-
 // Level 2 buttons
   document.getElementById("new-level2-btn-1").addEventListener("click", generateLevel2Problem);
   document.getElementById("reveal-level2-btn-1").addEventListener("click", showLevel2Solution);
-
 // Level 3 buttons
   document.getElementById("new-level3-btn-1").addEventListener("click", generateLevel3Problem);
   document.getElementById("reveal-level3-btn-1").addEventListener("click", showLevel3Solution);
-
+//Algebra buttons
   document.getElementById("new-algebra-btn-1").addEventListener("click", generateAlgebraProblem1);
   document.getElementById("reveal-algebra-btn-1").addEventListener("click", showAlgebraSolution1);
-
+//Rounding buttons
   document.getElementById("new-rounding-btn").addEventListener("click", generateRoundingProblem);
   document.getElementById("reveal-rounding-btn").addEventListener("click", showRoundingSolution);
-
+//Comprehensive quiz button
   document.getElementById("comprehensive-quiz-btn").addEventListener("click", launchComprehensiveQuiz);
-
-  document.getElementById("quiz-level1-btn").addEventListener("click", () => {
+//Level 1 quiz button
+  document.getElementById("quiz-level1-btn-1").addEventListener("click", () => {
   window.open("level1-quiz.html", "Level1Quiz", "width=800,height=600");
 
   // Trigger initial problems

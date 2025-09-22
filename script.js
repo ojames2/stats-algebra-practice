@@ -303,6 +303,9 @@ window.onload = function() {
 
   document.getElementById("comprehensive-quiz-btn").addEventListener("click", launchComprehensiveQuiz);
 
+  document.getElementById("quiz-rounding-btn").addEventListener("click", () => {
+  window.open("level1-quiz.html", "Level1Quiz", "width=800,height=600");
+
   // Trigger initial problems
   generateLevel1Problem();
   generateLevel2Problem();

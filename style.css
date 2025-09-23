@@ -142,6 +142,51 @@ button {
   background-color: #245f61; /* Slightly darker on hover */
 }
 
+.quiz-link.level1 {
+  background-color: #2c7a7b;
+}
+.quiz-link.level1:hover {
+  background-color: #245f61;
+}
+
+.quiz-link.level2 {
+  background-color: #DFAF2C;
+}
+.quiz-link.level2:hover {
+  background-color: #b98f1f;
+}
+
+.quiz-link.level3 {
+  background-color: #FF6F61;
+}
+.quiz-link.level3:hover {
+  background-color: #e65c4f;
+}
+
+.quiz-link.algebra {
+  background-color: #4682B4; /* Steel Blue */
+}
+
+.quiz-link.algebra:hover {
+  background-color: #3a6d99;
+}
+
+.quiz-link.rounding {
+  background-color: #614051; /* Deep Plum */
+}
+
+.quiz-link.rounding:hover {
+  background-color: #4e3542;
+}
+
+.quiz-link.comprehensive {
+  background-color: #c49b6c; /* Warm Tan */
+}
+
+.quiz-link.comprehensive:hover {
+  background-color: #a37f52;
+}
+
 .quiz-link:focus {
   outline: 2px solid #245f61;
   outline-offset: 2px;

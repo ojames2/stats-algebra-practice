@@ -121,3 +121,29 @@ button {
   transition: all 0.2s ease-in-out;
 }
 
+.quiz-link {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
+  font-size: 1em;
+  color: white;
+  background-color: #2c7a7b; /* Level 1 button color */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease;
+}
+
+.quiz-link:hover {
+  background-color: #245f61; /* Slightly darker on hover */
+}
+
+.quiz-link:focus {
+  outline: 2px solid #245f61;
+  outline-offset: 2px;
+}
+

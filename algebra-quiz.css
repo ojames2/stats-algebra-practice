@@ -1,1 +1,82 @@
+/* General layout */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Quiz container */
+.quiz-container {
+  max-width: 700px;
+  margin: 2em auto;
+  padding: 2em;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Quiz title */
+.quiz-container h1 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-size: 2em;
+  color: #333;
+}
+
+/* Questions section */
+#quiz-questions .quiz-question {
+  line-height: 1.5;
+  text-align: left;
+  margin: 1.5em auto;
+  width: 90%;
+  font-size: 1.1rem;
+}
+
+/* Submit button */
+#submit-quiz-btn {
+  display: block;
+  margin: 2em auto;
+  padding: 0.75em 2em;
+  font-size: 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#submit-quiz-btn:hover {
+  background-color: #45a049;
+}
+
+/* Results section */
+#quiz-results {
+  margin-top: 2em;
+  padding: 1em;
+  background-color: #e8f5e9;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#quiz-results h2 {
+  margin-bottom: 0.5em;
+  color: #2e7d32;
+}
+
+#retake-quiz-btn {
+  display: block;
+  margin: 2em auto;
+  padding: 0.5em 1.5em;
+  font-size: 1rem;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#retake-quiz-btn:hover {
+  background-color: #1976D2;
+}
 

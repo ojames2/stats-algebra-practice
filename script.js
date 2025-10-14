@@ -294,19 +294,20 @@ function generateAlgebraProblem1() {
 function showAlgebraSolution1() {
   const userAnswer = parseInt(document.getElementById("algebra-answer-1").value);
   const feedback = document.getElementById("algebra-solution-1");
+  const questionText = document.getElementById("algebra-problem-1").textContent;
+  const isCorrect = userAnswer === currentAlgebraAnswer1;
 
   if (isNaN(userAnswer)) {
     feedback.textContent = "Please enter a whole number.";
-  } else if (userAnswer === currentAlgebraAnswer1) {
+  } else if (isCorrect) {
     feedback.textContent = `✅ Correct!`;
   } else {
     feedback.textContent = `❌ Incorrect. The correct answer is x = ${currentAlgebraAnswer1}.`;
   }
 
   feedback.style.display = "block";
-}
 
-  // fetch code for algebra
+  // ✅ Backend logging
   fetch('https://your-backend-service.up.railway.app/track-attempt', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -325,6 +326,7 @@ function showAlgebraSolution1() {
   .then(data => console.log('Backend response:', data))
   .catch(error => console.error('Error sending attempt:', error));
 }
+
 
 // Rounding Section
 let currentRoundingAnswer = null;
@@ -349,19 +351,20 @@ function generateRoundingProblem() {
 function showRoundingSolution() {
   const userAnswer = document.getElementById("rounding-answer").value.trim();
   const feedback = document.getElementById("rounding-solution");
+  const questionText = document.getElementById("rounding-problem").textContent;
+  const isCorrect = parseFloat(userAnswer).toFixed(2) === currentRoundingAnswer;
 
   if (userAnswer === "") {
     feedback.textContent = "Please enter a number.";
-  } else if (parseFloat(userAnswer).toFixed(2) === currentRoundingAnswer) {
-    feedback.textContent = "✅ Correct!";
+  } else if (isCorrect) {
+    feedback.textContent = `✅ Correct!`;
   } else {
-    feedback.textContent = `❌ Incorrect. The correct answer is ${currentRoundingAnswer}.`;
+    feedback.textContent = `❌ Incorrect. You entered ${userAnswer}, but the correct answer is ${currentRoundingAnswer}.`;
   }
 
   feedback.style.display = "block";
-}
 
- //  fetch code for rounding
+  // ✅ Backend logging
   fetch('https://your-backend-service.up.railway.app/track-attempt', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -380,6 +383,7 @@ function showRoundingSolution() {
   .then(data => console.log('Backend response:', data))
   .catch(error => console.error('Error sending attempt:', error));
 }
+
 
 //Window Onload Functions
 window.onload = function() {

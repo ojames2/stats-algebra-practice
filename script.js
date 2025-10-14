@@ -52,7 +52,7 @@ function showLevel1Solution() {
   feedback.style.display = "block";
 
   // ✅ Backend logging goes here
-  fetch('https://your-backend-service.up.railway.app/track-attempt', {
+  fetch('https://stats-algebra-practice.up.railway.app/track-attempt', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -129,7 +129,7 @@ function showLevel2Solution() {
   feedback.style.display = "block";
 
   // ✅ Backend logging
-  fetch('https://your-backend-service.up.railway.app/track-attempt', {
+  fetch('https://stats-algebra-practice.up.railway.app/track-attempt', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -223,7 +223,7 @@ function showLevel3Solution() {
   feedback.style.display = "block";
 
   // ✅ Backend logging
-  fetch('https://your-backend-service.up.railway.app/track-attempt', {
+  fetch('https://stats-algebra-practice.up.railway.app/track-attempt', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -308,7 +308,7 @@ function showAlgebraSolution1() {
   feedback.style.display = "block";
 
   // ✅ Backend logging
-  fetch('https://your-backend-service.up.railway.app/track-attempt', {
+  fetch('https://stats-algebra-practice.up.railway.app/track-attempt', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -365,7 +365,7 @@ function showRoundingSolution() {
   feedback.style.display = "block";
 
   // ✅ Backend logging
-  fetch('https://your-backend-service.up.railway.app/track-attempt', {
+  fetch('https://stats-algebra-practice.up.railway.app/track-attempt', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

@@ -53,6 +53,28 @@ function showLevel1Solution() {
 
   feedback.style.display = "block";
 }
+//fetch code
+const questionText = document.getElementById("level1-problem-1").textContent;
+const isCorrect = parseFloat(userAnswer) === currentLevel1Answer;
+
+fetch('https://your-backend-service.up.railway.app/track-attempt', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    topic: 'Algebra',
+    level: 'Level 1',
+    question_text: questionText,
+    user_answer: userAnswer,
+    correct_answer: currentLevel1Answer,
+    is_correct: isCorrect,
+    source_page: 'mainpage',
+    session_id: null
+  })
+})
+.then(response => response.text())
+.then(data => console.log('Backend response:', data))
+.catch(error => console.error('Error sending attempt:', error));
+
 
 //Level 2 – Order of Operations
 let currentLevel2Answer = null;

@@ -132,6 +132,26 @@ function showLevel2Solution() {
   feedback.style.display = "block";
 }
 
+  // fetch code level 2
+  fetch('https://your-backend-service.up.railway.app/track-attempt', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      topic: 'Algebra',
+      level: 'Level 2',
+      question_text: questionText,
+      user_answer: userAnswer,
+      correct_answer: currentLevel2Answer,
+      is_correct: isCorrect,
+      source_page: 'mainpage',
+      session_id: null
+    })
+  })
+  .then(response => response.text())
+  .then(data => console.log('Backend response:', data))
+  .catch(error => console.error('Error sending attempt:', error));
+}
+
 // Level 3 – Order of Operations
 let currentLevel3Answer = null;
 let formatIndex = 0; // cycles through 0–3 for A, B, C, D
@@ -202,6 +222,26 @@ function showLevel3Solution() {
   }
 
   feedback.style.display = "block";
+}
+
+  // fetcb for level 3 
+  fetch('https://your-backend-service.up.railway.app/track-attempt', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      topic: 'Algebra',
+      level: 'Level 3',
+      question_text: questionText,
+      user_answer: userAnswer,
+      correct_answer: currentLevel3Answer,
+      is_correct: isCorrect,
+      source_page: 'mainpage',
+      session_id: null
+    })
+  })
+  .then(response => response.text())
+  .then(data => console.log('Backend response:', data))
+  .catch(error => console.error('Error sending attempt:', error));
 }
 
 // Algebra Section

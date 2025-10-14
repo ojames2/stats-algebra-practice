@@ -115,19 +115,20 @@ function generateLevel2Problem() {
 function showLevel2Solution() {
   const userAnswer = parseInt(document.getElementById("level2-answer-1").value);
   const feedback = document.getElementById("level2-solution-1");
+  const questionText = document.getElementById("level2-problem-1").textContent;
+  const isCorrect = userAnswer === currentLevel2Answer;
 
   if (isNaN(userAnswer)) {
     feedback.textContent = "Please enter a whole number.";
-  } else if (userAnswer === currentLevel2Answer) {
+  } else if (isCorrect) {
     feedback.textContent = "✅ Correct!";
   } else {
     feedback.textContent = `❌ Incorrect. The correct answer is ${currentLevel2Answer}.`;
   }
 
   feedback.style.display = "block";
-}
 
-  // fetch code level 2
+  // ✅ Backend logging
   fetch('https://your-backend-service.up.railway.app/track-attempt', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -146,6 +147,7 @@ function showLevel2Solution() {
   .then(data => console.log('Backend response:', data))
   .catch(error => console.error('Error sending attempt:', error));
 }
+
 
 // Level 3 – Order of Operations
 let currentLevel3Answer = null;

@@ -224,7 +224,7 @@ function showLevel3Solution() {
   feedback.style.display = "block";
 }
 
-  // fetcb for level 3 
+  // fetch code for level 3 
   fetch('https://your-backend-service.up.railway.app/track-attempt', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -308,6 +308,26 @@ function showAlgebraSolution1() {
   feedback.style.display = "block";
 }
 
+  // fetch code for algebra
+  fetch('https://your-backend-service.up.railway.app/track-attempt', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      topic: 'Algebra',
+      level: 'Algebra',
+      question_text: questionText,
+      user_answer: userAnswer,
+      correct_answer: currentAlgebraAnswer1,
+      is_correct: isCorrect,
+      source_page: 'mainpage',
+      session_id: null
+    })
+  })
+  .then(response => response.text())
+  .then(data => console.log('Backend response:', data))
+  .catch(error => console.error('Error sending attempt:', error));
+}
+
 // Rounding Section
 let currentRoundingAnswer = null;
 let useThreeDecimals = true; // toggles between XX.XXX and XX.XXXX
@@ -341,6 +361,26 @@ function showRoundingSolution() {
   }
 
   feedback.style.display = "block";
+}
+
+ //  fetch code for rounding
+  fetch('https://your-backend-service.up.railway.app/track-attempt', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      topic: 'Rounding',
+      level: 'Rounding',
+      question_text: questionText,
+      user_answer: userAnswer,
+      correct_answer: currentRoundingAnswer,
+      is_correct: isCorrect,
+      source_page: 'mainpage',
+      session_id: null
+    })
+  })
+  .then(response => response.text())
+  .then(data => console.log('Backend response:', data))
+  .catch(error => console.error('Error sending attempt:', error));
 }
 
 //Window Onload Functions

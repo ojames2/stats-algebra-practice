@@ -411,10 +411,13 @@ window.onload = function() {
   }
 
 //Level 1 quiz button
-  document.getElementById("quiz-level1-btn-1").addEventListener("click", () => {
-  window.open("level1-quiz.html", "_blank");
-});
+ const level1QuizBtn = document.getElementById("quiz-level1-btn-1");
+ if (level1QuizBtn) {
+  level1QuizBtn.addEventListener("click", () => {
+    window.open("level1-quiz.html", "_blank");
+  });
 }
+
 // Trigger initial problems
 generateLevel1Problem();
 generateLevel2Problem();

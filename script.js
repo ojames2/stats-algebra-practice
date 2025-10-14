@@ -69,7 +69,7 @@ function showLevel1Solution() {
   .then(response => response.text())
   .then(data => console.log('Backend response:', data))
   .catch(error => console.error('Error sending attempt:', error));
-}
+
 
 //Level 2 – Order of Operations
 let currentLevel2Answer = null;

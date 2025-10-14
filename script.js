@@ -51,7 +51,7 @@ function showLevel1Solution() {
 
   feedback.style.display = "block";
 
-  // ✅ Send attempt to backend
+  // ✅ Backend logging goes here
   fetch('https://your-backend-service.up.railway.app/track-attempt', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -69,7 +69,7 @@ function showLevel1Solution() {
   .then(response => response.text())
   .then(data => console.log('Backend response:', data))
   .catch(error => console.error('Error sending attempt:', error));
-
+}
 
 //Level 2 – Order of Operations
 let currentLevel2Answer = null;

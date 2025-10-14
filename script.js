@@ -209,19 +209,20 @@ function generateLevel3Problem() {
 function showLevel3Solution() {
   const userAnswer = document.getElementById("level3-answer-1").value.trim();
   const feedback = document.getElementById("level3-solution-1");
+  const questionText = document.getElementById("level3-problem-1").textContent;
+  const isCorrect = parseFloat(userAnswer) === currentLevel3Answer;
 
   if (userAnswer === "") {
     feedback.textContent = "Please enter a number.";
-  } else if (parseFloat(userAnswer) === currentLevel3Answer) {
+  } else if (isCorrect) {
     feedback.textContent = `✅ Correct! The answer is ${currentLevel3Answer}.`;
   } else {
     feedback.textContent = `❌ Incorrect. You entered ${userAnswer}, but the correct answer is ${currentLevel3Answer}.`;
   }
 
   feedback.style.display = "block";
-}
 
-  // fetch code for level 3 
+  // ✅ Backend logging
   fetch('https://your-backend-service.up.railway.app/track-attempt', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

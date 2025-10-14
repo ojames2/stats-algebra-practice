@@ -1,4 +1,4 @@
-require('dotenv').config({ path: './.env.attempts' });
+require('dotenv').config({ path: '.env.attempts' });
 const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');

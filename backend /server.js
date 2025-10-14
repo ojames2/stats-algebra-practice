@@ -24,6 +24,8 @@ app.post('/track-attempt', async (req, res) => {
     session_id
   } = req.body;
 
+console.log("Received attempt:", req.body);
+  
   try {
     await pool.query(
       `INSERT INTO mainpage_attempts 

@@ -74,7 +74,7 @@ fetch('https://your-backend-service.up.railway.app/track-attempt', {
 .then(response => response.text())
 .then(data => console.log('Backend response:', data))
 .catch(error => console.error('Error sending attempt:', error));
-
+}
 
 //Level 2 – Order of Operations
 let currentLevel2Answer = null;

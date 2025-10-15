@@ -18,7 +18,7 @@ app.use(cors({
 app.use(express.json());
 
 // ✅ Handle preflight OPTIONS requests for CORS
-app.options('*', cors());
+app.options('/track-attempt', cors());
 
 // 🗄️ Set up PostgreSQL connection pool
 const pool = new Pool({

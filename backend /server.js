@@ -28,6 +28,10 @@ const pool = new Pool({
 
 // 📥 Define route to log user attempts
 app.post('/track-attempt', async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://ojames2.github.io");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  
   const {
     topic,
     level,

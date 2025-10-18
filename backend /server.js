@@ -56,7 +56,6 @@ app.post('/track-attempt', async (req, res) => {
         correct_answer, is_correct, source_page, session_id
     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
   `, [topic, level, question_text, user_answer, correct_answer, is_correct, source_page, session_id]);
-    );
     res.status(200).send('Attempt logged successfully');
   } catch (err) {
     console.error(err); // 🐛 Error log

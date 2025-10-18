@@ -1,5 +1,5 @@
 // 🔐 Load environment variables from .env.attempts
-require('dotenv').config({ path: '.env.attempts' });
+require('dotenv').config({ path: '.env' });
 
 // 🚀 Import required modules
 const express = require('express');
@@ -22,8 +22,12 @@ app.options('/track-attempt', cors());
 
 // 🗄️ Set up PostgreSQL connection pool
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false } // Required for Railway's managed PostgreSQL
+  host: process.env.PGHOST,
+  user: process.env.PGUSER,
+  password: process.env.PGPASSWORD,
+  database: process.env.PGDATABASE,
+  port: process.env.PGPORT,
+  ssl: { rejectUnauthorized: false } // Supabase requires SSL too
 });
 
 // 📥 Define route to log user attempts
